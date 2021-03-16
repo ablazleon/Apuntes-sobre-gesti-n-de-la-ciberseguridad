@@ -1,8 +1,12 @@
 1-
 
-a. get(138.4.2.43)
+a. get(138.4.2.43) => GET(at.1.1.2.1.138.4.2.43)
+
+- why the 1.1.2.1?
 
 b. get-next(138.4.2.9)
+
+- pq un get next de la 33
 
 c. The atPhys or the atNet
 
