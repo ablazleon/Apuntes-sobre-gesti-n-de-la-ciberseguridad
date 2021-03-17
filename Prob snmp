@@ -8,6 +8,8 @@ a. get(138.4.2.43) => GET(at.1.1.2.1.138.4.2.43)
 
 b. get-next(138.4.2.9) => GET-NEXT(at.1.1.2.1.138.4.2.9)
 
+=> .1.1 to table, and then to entry
+
 - pq un get next de la 33 => caulquiera vale para un get next
 
 c. The atPhys or the atNet => atIfIndex
