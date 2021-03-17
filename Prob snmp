@@ -4,6 +4,8 @@ a. get(138.4.2.43) => GET(at.1.1.2.1.138.4.2.43)
 
 - why the 1.1.2.1? => this extra 1 is beacuse of the index
 
+=> primero se observa que en la definición de la MIB atIfIndex y atNetAddress son índices
+
 b. get-next(138.4.2.9) => GET-NEXT(at.1.1.2.1.138.4.2.9)
 
 - pq un get next de la 33
