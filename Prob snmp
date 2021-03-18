@@ -65,7 +65,11 @@ GET-BULK(NR=2, MR = 4, p1, p2, p3, p4)
 
 GET-BULK(non-repeaters=0, max-repetitions=10, dot3.5.1.1, dot3.5.1.2, dot3.5.1.3)
 
-
+GET-RESPONSE(
+dot3.5.1.1.1.3 = 1, dot3.5.1.1.1.5 = 1, dot3.5.1.1.2.3 = 2, dot3.5.1.1.2.5 = 2,
+dot3.5.1.2.1.3 = 3, dot3.5.1.2.1.5 = 5, dot3.5.1.2.2.3 = 3, dot3.5.1.2.2.5 = 5,
+dot3.5.1.3.1.3 = 313476, dot3.5.1.3.1.5 = 2436, dot3.5.1.3.2.3 = 15643, dot3.5.1.3.2.5 = 3421,
+)
 
 d) Se debe codificar esta ifnoramción ampliando esta MIB etehrnet del grupo transmission
 
