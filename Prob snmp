@@ -20,6 +20,9 @@ d. error
 
 =>0.200?
 
+The next in lexicographic order
+GET-RESPONSE(OID = at.1.1.1.183.4.2.3, value = 138.4.2.3)
+
 e. error, there's no oid with this
 
 => no such isntance
