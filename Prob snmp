@@ -21,10 +21,81 @@ d. error
 =>0.200?
 
 The next in lexicographic order
-GET-RESPONSE(OID = at.1.1.1.183.4.2.3, value = 138.4.2.3)
+GET-RESPONSE(OID = at.1.1.1.183.4.2.3, value = 1)
 
 e. error, there's no oid with this
 
 => no such isntance
+
+Ej2
+
+a) x
+b) v
+c) x
+d) x
+
+a) Conocer ciertos valores de la comunicaicón a nivel 2 con ethernet
+
+b) Para traerse la tabla con un conjunto de primtiivas SNMPv1, se debe ejecutar GET NEXT con el fin de acceder a todos los valores.
+
+Nótese que se especifica en la MIB que cada dot3collEntry se indexa por dot3CollIndex y dot3CollCount.
+
+Serán necesarias 4 x 3 GET-NEXT
+
+GET-NEXT(dot3colltable.1.1) = GET-RESPONSE(OID = dot3colltable.1.1.1.3, value = 1)
+GET-NEXT(dot3colltable.1.1.1.3) = GET-RESPONSE(OID = dot3colltable.1.1.1.5, value = 1)
+GET-NEXT(dot3colltable.1.1.1.5) = GET-RESPONSE(OID = dot3colltable.1.1.2.3, value = 2)
+GET-NEXT(dot3colltable.1.1.2.3) = GET-RESPONSE(OID = dot3colltable.1.1.2.5, value = 2)
+
+GET-NEXT(dot3colltable.1.1.2.5) = GET-RESPONSE(OID = dot3colltable.1.2.1.3, value = 3)
+GET-NEXT(dot3colltable.1.2.1.3) = GET-RESPONSE(OID = dot3colltable.1.2.1.5, value = 5)
+GET-NEXT(dot3colltable.1.2.1.5) = GET-RESPONSE(OID = dot3colltable.1.2.2.3, value = 3)
+GET-NEXT(dot3colltable.1.2.2.3) = GET-RESPONSE(OID = dot3colltable.1.2.2.5, value = 5)
+
+GET-NEXT(dot3colltable.1.2.2.5) = GET-RESPONSE(OID = dot3colltable.1.3.1.3.13476, value = 1)
+GET-NEXT(dot3colltable.1.3.1.3.13476) = GET-RESPONSE(OID = dot3colltable.1.3.1.5.2436, value = 1)
+GET-NEXT(dot3colltable.1.3.1.5.2436) = GET-RESPONSE(OID = dot3colltable.1.3.2.3.15643, value = 2)
+GET-NEXT(dot3colltable.1.2.2.3.15643) = GET-RESPONSE(OID = dot3colltable.1.3.2.5.3421, value = 2)
+
+c) Cömo una get repsonse en masa?
+
+GET-BULK(dot3colltable.1.1)=
+
+d) Se debe codificar esta ifnoramción ampliando esta MIB etehrnet del grupo transmission
+
+
+ dot3Alinea OBJECT-TYPE
+ SYNTAX INTEGER
+ ACCESS read-only
+ STATUS mandatory
+ DESCRIPTION
+"The number of per-frame media alineation errors for which a particular collision histogram cell  represents the frequency on a particular interface."
+ ::= { dot3CollEntry 4 }
+
+ dot3TramNT OBJECT-TYPE
+ SYNTAX INTEGER
+ ACCESS read-only
+ STATUS mandatory
+ DESCRIPTION
+"The number of per-frame frames not transmitted beacsue of excesive collisions."
+ ::= { dot3CollEntry 5 }
+ 
+ dot3Estado OBJECT-TYPE
+ SYNTAX INTEGER
+ ACCESS read-only
+ STATUS mandatory
+ DESCRIPTION
+"State of etehrnet card, that can be right, unavailable, with severe error or with soft errors"
+ ::= { dot3CollEntry 6 }
+ 
+  dot3RstCount OBJECT-TYPE
+ SYNTAX INTEGER
+ ACCESS write-only
+ STATUS mandatory
+ DESCRIPTION
+"Enable reset of counters"
+ ::= { dot3CollEntry 7 }
+
+
 
 
